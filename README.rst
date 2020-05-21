@@ -16,7 +16,13 @@ Installation
 
 .. code::
 
-    pip install nornir_jinja2
+    pip install nornir-jinja2
 
 Plugins
 -------
+
+Tasks
+_____
+
+* **template_file** - Render a jinja2 template from a file
+* **tempalte_string** Render a jinja2 template from a string
