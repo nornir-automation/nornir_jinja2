@@ -31,7 +31,6 @@ def template_string(
 
     if jinja_env:
         env = jinja_env
-        env.loader = FileSystemLoader(path)
     else:
         env = Environment(undefined=StrictUndefined, trim_blocks=True,)
     env.filters.update(jinja_filters)
