@@ -33,6 +33,7 @@ def template_file(
 
     if jinja_env:
         env = jinja_env
+        env.loader = FileSystemLoader(path)
     else:
         env = Environment(
             loader=FileSystemLoader(path), undefined=StrictUndefined, trim_blocks=True,
