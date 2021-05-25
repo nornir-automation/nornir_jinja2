@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nornir_jinja2"
-version = "0.1.2"
+version = "0.2.0"
 description = "Jinja2 plugins for nornir"
 authors = ["David Barroso <dbarrosop@dravetech.com>"]
 license = "Apache-2.0"
@@ -8,7 +8,7 @@ license = "Apache-2.0"
 [tool.poetry.dependencies]
 python = "^3.6"
 nornir = { version = "~3", allow-prereleases = true }
-jinja2 = "^2.11.2"
+jinja2 = "~3"
 
 [tool.poetry.dev-dependencies]
 black = { version = "19.10b0", allow-prereleases = true }
