@@ -31,7 +31,7 @@ pylama:
 
 .PHONY: mypy
 mypy:
-	poetry run mypy .
+	poetry run mypy nornir_jinja2
 
 .PHONY: tests
 tests: black pylama mypy pytest
