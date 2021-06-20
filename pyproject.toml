@@ -8,7 +8,7 @@ license = "Apache-2.0"
 [tool.poetry.dependencies]
 python = "^3.6"
 nornir = { version = "~3", allow-prereleases = true }
-jinja2 = "~3"
+jinja2 = "^2.11.2|~3"
 
 [tool.poetry.dev-dependencies]
 black = { version = "19.10b0", allow-prereleases = true }

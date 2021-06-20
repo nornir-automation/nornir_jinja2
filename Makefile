@@ -19,15 +19,15 @@ docker:
 
 .PHONY: pytest
 pytest:
-	poetry run pytest -vs ${ARGS} .
+	poetry run pytest -vs ${ARGS} tests
 
 .PHONY: black
 black:
-	poetry run black --check .
+	poetry run black --check nornir_jinja2 tests
 
 .PHONY: pylama
 pylama:
-	poetry run pylama .
+	poetry run pylama nornir_jinja2 tests
 
 .PHONY: mypy
 mypy:
