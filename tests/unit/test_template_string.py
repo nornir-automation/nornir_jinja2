@@ -4,7 +4,6 @@ from jinja2 import TemplateSyntaxError
 from nornir_jinja2.plugins.tasks import template_string
 
 
-
 data_dir = "{}/test_data".format(os.path.dirname(os.path.realpath(__file__)))
 
 simple_j2 = """
@@ -31,8 +30,10 @@ host-name {{ host
 my_var: {{ my_var}}
 """
 
+
 def jinja_filter_to_upper(value):
     return str(value).upper()
+
 
 class Test(object):
     def test_template_string(self, nr):
