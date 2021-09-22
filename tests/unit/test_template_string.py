@@ -1,8 +1,8 @@
 import os
 
+from jinja2 import TemplateSyntaxError
 from nornir_jinja2.plugins.tasks import template_string
 
-from jinja2 import TemplateSyntaxError
 
 
 data_dir = "{}/test_data".format(os.path.dirname(os.path.realpath(__file__)))
