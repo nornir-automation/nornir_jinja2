@@ -52,7 +52,9 @@ class Test(object):
         filters = {
             "to_upper": jinja_filter_to_upper,
         }
-        result = nr.run(template_string, template=simple2_j2, my_var="asd", jinja_filters=filters)
+        result = nr.run(
+            template_string, template=simple2_j2, my_var="asd", jinja_filters=filters
+        )
 
         assert result
         for h, r in result.items():
