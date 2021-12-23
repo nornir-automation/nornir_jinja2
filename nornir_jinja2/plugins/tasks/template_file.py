@@ -1,3 +1,4 @@
+import copy
 from typing import Any, Optional, Dict, Callable
 
 from nornir.core.task import Result, Task
@@ -32,7 +33,7 @@ def template_file(
     jinja_filters = jinja_filters or {}
 
     if jinja_env:
-        env = jinja_env
+        env = copy.deepcopy(jinja_env)
         env.loader = FileSystemLoader(path)
     else:
         env = Environment(
