@@ -25,4 +25,4 @@ Tasks
 _____
 
 * **template_file** - Render a jinja2 template from a file
-* **tempalte_string** Render a jinja2 template from a string
+* **template_string** Render a jinja2 template from a string
