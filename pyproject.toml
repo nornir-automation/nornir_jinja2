@@ -11,8 +11,10 @@ nornir = { version = "~3", allow-prereleases = true }
 jinja2 = "^2.11.2|~3"
 
 [tool.poetry.dev-dependencies]
+click = "8.0.1"
 black = { version = "19.10b0", allow-prereleases = true }
 mypy = "*"
+pyflakes = "2.4.0"
 pylama = "^7.7.1"
 pytest = "*"
 nbval = "*"
