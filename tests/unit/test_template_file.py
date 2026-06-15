@@ -1,9 +1,8 @@
 import os
 
+from jinja2 import Environment, TemplateSyntaxError
+
 from nornir_jinja2.plugins.tasks import template_file
-
-from jinja2 import TemplateSyntaxError
-
 
 data_dir = "{}/test_data".format(os.path.dirname(os.path.realpath(__file__)))
 
@@ -28,4 +27,28 @@ class Test(object):
         for result in results.values():
             processed = True
             assert isinstance(result.exception, TemplateSyntaxError)
+        assert processed
+
+    def test_template_file_no_path_or_jinja_env(self, nr):
+        results = nr.run(template_file, template="simple.j2", my_var="asd")
+
+        processed = False
+        for result in results.values():
+            processed = True
+            assert isinstance(result.exception, TypeError)
+        assert processed
+
+    def test_template_file_jinja_env_without_loader(self, nr):
+        jinja_env = Environment(
+            loader=None,
+            trim_blocks=True,
+        )
+        results = nr.run(
+            template_file, template="simple.j2", my_var="asd", jinja_env=jinja_env
+        )
+
+        processed = False
+        for result in results.values():
+            processed = True
+            assert isinstance(result.exception, TypeError)
         assert processed
