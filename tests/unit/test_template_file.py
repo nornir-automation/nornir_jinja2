@@ -35,7 +35,7 @@ class Test(object):
         processed = False
         for result in results.values():
             processed = True
-            assert isinstance(result.exception, TypeError)
+            assert isinstance(result.exception, ValueError)
         assert processed
 
     def test_template_file_jinja_env_without_loader(self, nr):

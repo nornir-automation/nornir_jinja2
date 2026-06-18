@@ -33,12 +33,15 @@ def template_file(
 
     if jinja_env:
         env = jinja_env
-    else:
+    elif path:
         env = Environment(
             loader=FileSystemLoader(path),
             undefined=StrictUndefined,
             trim_blocks=True,
         )
+    else:
+        raise ValueError("Either jinja_env or path must be provided")
+
     env.filters.update(jinja_filters)
     t = env.get_template(template)
     text = t.render(host=task.host, **kwargs)
