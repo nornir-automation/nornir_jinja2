@@ -29,8 +29,11 @@ sphinx_rtd_theme = "^0.4.3"
 line-length = 100
 
 [tool.ruff.lint]
-# Port of the previous pylama linters: pep8 (E/W) + pyflakes (F)
-select = ["E", "W", "F"]
+# Port of the previous pylama linters: pep8 (E/W) + pyflakes (F) + mccabe (C90)
+select = ["E", "W", "F", "C90"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
 
 [build-system]
 requires = ["poetry>=0.12"]
