@@ -32,7 +32,10 @@ def template_string(
     if jinja_env:
         env = jinja_env
     else:
-        env = Environment(undefined=StrictUndefined, trim_blocks=True,)
+        env = Environment(
+            undefined=StrictUndefined,
+            trim_blocks=True,
+        )
     env.filters.update(jinja_filters)
     t = env.from_string(template)
     text = t.render(host=task.host, **kwargs)

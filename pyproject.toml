@@ -6,16 +6,15 @@ authors = ["David Barroso <dbarrosop@dravetech.com>"]
 license = "Apache-2.0"
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.10"
 nornir = { version = "~3", allow-prereleases = true }
 jinja2 = "^2.11.2|~3"
 
 [tool.poetry.dev-dependencies]
 click = "8.0.1"
-black = { version = "19.10b0", allow-prereleases = true }
+black = "^25"
 mypy = "*"
-pyflakes = "2.4.0"
-pylama = "^7.7.1"
+ruff = "*"
 pytest = "*"
 nbval = "*"
 jupyter = "^1"
@@ -25,6 +24,16 @@ nbsphinx = "^0.6.1"
 sphinx-issues = "^1.2.0"
 sphinx_rtd_theme = "^0.4.3"
 
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# Port of the previous pylama linters: pep8 (E/W) + pyflakes (F) + mccabe (C90)
+select = ["E", "W", "F", "C90"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
 
 [build-system]
 requires = ["poetry>=0.12"]
