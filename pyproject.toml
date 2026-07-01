@@ -12,7 +12,7 @@ jinja2 = "^2.11.2|~3"
 
 [tool.poetry.dev-dependencies]
 click = "8.0.1"
-black = "^25"
+black = "^26"
 mypy = "*"
 ruff = "*"
 pytest = "*"
