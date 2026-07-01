@@ -43,7 +43,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [ '3.7', '3.8', '3.9', '3.10', '3.11', '3.12' ]
+        python-version:
+          - 3.10
+          - 3.11
+          - 3.12
+          - 3.13
     steps:
       - uses: actions/checkout@v2
       - name: Setup python
@@ -81,7 +85,7 @@ jobs:
       - name: Build
         uses: abatilo/actions-poetry@v2.1.6
         with:
-          python_version: 3.8.0
+          python_version: 3.13
           poetry_version: 1.3
           working_directory: .
           args: build
