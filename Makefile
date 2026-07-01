@@ -25,16 +25,16 @@ pytest:
 black:
 	poetry run black --check nornir_jinja2 tests
 
-.PHONY: pylama
-pylama:
-	poetry run pylama nornir_jinja2 tests
+.PHONY: ruff
+ruff:
+	poetry run ruff check nornir_jinja2 tests
 
 .PHONY: mypy
 mypy:
 	poetry run mypy nornir_jinja2
 
 .PHONY: tests
-tests: black pylama mypy pytest
+tests: black ruff mypy pytest
 .PHONY: docker-tests
 
 .PHONY:docker-tests

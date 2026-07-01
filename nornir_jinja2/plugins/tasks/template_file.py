@@ -36,7 +36,9 @@ def template_file(
         env.loader = FileSystemLoader(path)
     else:
         env = Environment(
-            loader=FileSystemLoader(path), undefined=StrictUndefined, trim_blocks=True,
+            loader=FileSystemLoader(path),
+            undefined=StrictUndefined,
+            trim_blocks=True,
         )
     env.filters.update(jinja_filters)
     t = env.get_template(template)

@@ -31,8 +31,8 @@ jobs:
         run: poetry install
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
 
-      - name: Run pylama
-        run: make pylama
+      - name: Run ruff
+        run: make ruff
       - name: Run black
         run: make black
       - name: Run mypy
