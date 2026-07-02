@@ -13,7 +13,7 @@ def template_file(
     path: str,
     jinja_filters: Optional[FiltersDict] = None,
     jinja_env: Optional[Environment] = None,
-    **kwargs: Any
+    **kwargs: Any,
 ) -> Result:
     """
     Renders contants of a file with jinja2. All the host data is available in the template

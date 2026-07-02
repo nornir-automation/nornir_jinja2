@@ -10,9 +10,7 @@ data_dir = "{}/test_data".format(os.path.dirname(os.path.realpath(__file__)))
 
 class Test(object):
     def test_template_file(self, nr):
-        result = nr.run(
-            template_file, template="simple.j2", my_var="asd", path=data_dir
-        )
+        result = nr.run(template_file, template="simple.j2", my_var="asd", path=data_dir)
 
         assert result
         for h, r in result.items():

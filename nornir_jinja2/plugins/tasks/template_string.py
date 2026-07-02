@@ -13,7 +13,7 @@ def template_string(
     template: str,
     jinja_filters: Optional[FiltersDict] = None,
     jinja_env: Optional[Environment] = None,
-    **kwargs: Any
+    **kwargs: Any,
 ) -> Result:
     """
     Renders a string with jinja2. All the host data is available in the template
