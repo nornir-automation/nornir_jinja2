@@ -10,7 +10,7 @@ FiltersDict = Optional[Dict[str, Callable[..., str]]]
 def template_file(
     task: Task,
     template: str,
-    path: str,
+    path: Optional[str] = None,
     jinja_filters: Optional[FiltersDict] = None,
     jinja_env: Optional[Environment] = None,
     **kwargs: Any,
@@ -33,13 +33,15 @@ def template_file(
 
     if jinja_env:
         env = jinja_env
-        env.loader = FileSystemLoader(path)
-    else:
+    elif path:
         env = Environment(
             loader=FileSystemLoader(path),
             undefined=StrictUndefined,
             trim_blocks=True,
         )
+    else:
+        raise ValueError("Either jinja_env or path must be provided")
+
     env.filters.update(jinja_filters)
     t = env.get_template(template)
     text = t.render(host=task.host, **kwargs)
