@@ -1,6 +1,6 @@
 NAME=$(shell basename $(PWD))
 
-PYTHON:=3.7
+PYTHON:=3.12
 
 DOCKER=docker run \
 	   --rm -ir \
@@ -19,19 +19,19 @@ docker:
 
 .PHONY: pytest
 pytest:
-	poetry run pytest -vs ${ARGS} tests
+	uv run pytest -vs ${ARGS} tests
 
 .PHONY: format
 format:
-	poetry run ruff format --check nornir_jinja2 tests
+	uv run ruff format --check nornir_jinja2 tests
 
 .PHONY: ruff
 ruff:
-	poetry run ruff check nornir_jinja2 tests
+	uv run ruff check nornir_jinja2 tests
 
 .PHONY: mypy
 mypy:
-	poetry run mypy nornir_jinja2
+	uv run mypy nornir_jinja2
 
 .PHONY: tests
 tests: format ruff mypy pytest
