@@ -41,9 +41,7 @@ class Test(object):
             loader=None,
             trim_blocks=True,
         )
-        results = nr.run(
-            template_file, template="simple.j2", my_var="asd", jinja_env=jinja_env
-        )
+        results = nr.run(template_file, template="simple.j2", my_var="asd", jinja_env=jinja_env)
 
         processed = False
         for result in results.values():
