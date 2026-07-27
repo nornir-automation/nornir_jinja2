@@ -12,7 +12,6 @@ jinja2 = "^2.11.2|~3"
 
 [tool.poetry.dev-dependencies]
 click = "8.0.1"
-black = "^25"
 mypy = "*"
 ruff = "*"
 pytest = "*"
@@ -27,6 +26,12 @@ sphinx_rtd_theme = "^0.4.3"
 
 [tool.ruff]
 line-length = 100
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
 
 [tool.ruff.lint]
 # Port of the previous pylama linters: pep8 (E/W) + pyflakes (F) + mccabe (C90)

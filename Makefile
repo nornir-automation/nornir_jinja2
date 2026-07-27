@@ -21,9 +21,9 @@ docker:
 pytest:
 	poetry run pytest -vs ${ARGS} tests
 
-.PHONY: black
-black:
-	poetry run black --check nornir_jinja2 tests
+.PHONY: format
+format:
+	poetry run ruff format --check nornir_jinja2 tests
 
 .PHONY: ruff
 ruff:
@@ -34,7 +34,7 @@ mypy:
 	poetry run mypy nornir_jinja2
 
 .PHONY: tests
-tests: black ruff mypy pytest
+tests: format ruff mypy pytest
 .PHONY: docker-tests
 
 .PHONY:docker-tests
