@@ -1,18 +1,19 @@
-from typing import Any, Optional, Dict, Callable
+from collections.abc import Callable
+from typing import Any
 
 from nornir.core.task import Result, Task
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
-FiltersDict = Optional[Dict[str, Callable[..., str]]]
+FiltersDict = dict[str, Callable[..., str]]
 
 
 def template_file(
     task: Task,
     template: str,
-    path: Optional[str] = None,
-    jinja_filters: Optional[FiltersDict] = None,
-    jinja_env: Optional[Environment] = None,
+    path: str | None = None,
+    jinja_filters: FiltersDict | None = None,
+    jinja_env: Environment | None = None,
     **kwargs: Any,
 ) -> Result:
     """

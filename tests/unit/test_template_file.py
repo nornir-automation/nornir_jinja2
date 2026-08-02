@@ -4,10 +4,10 @@ from jinja2 import Environment, TemplateSyntaxError
 
 from nornir_jinja2.plugins.tasks import template_file
 
-data_dir = "{}/test_data".format(os.path.dirname(os.path.realpath(__file__)))
+data_dir = f"{os.path.dirname(os.path.realpath(__file__))}/test_data"
 
 
-class Test(object):
+class Test:
     def test_template_file(self, nr):
         result = nr.run(template_file, template="simple.j2", my_var="asd", path=data_dir)
 
