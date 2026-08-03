@@ -18,16 +18,23 @@ def template_file(
     """
     Renders contants of a file with jinja2. All the host data is available in the template
 
+    Either ``path`` or ``jinja_env`` must be provided.
+
     Arguments:
         template: filename
-        path: path to dir with templates
+        path: path to dir with templates. Optional, and ignored when ``jinja_env`` is given
         jinja_filters: jinja filters to enable. Defaults to nornir.config.jinja2.filters
-        jinja_env: A fully configured jinja2 environment
+        jinja_env: A fully configured jinja2 environment, including its own loader. The
+            loader is never overridden from ``path``, so the environment must be able to
+            find ``template`` on its own
         **kwargs: additional data to pass to the template
 
     Returns:
         Result object with the following attributes set:
           * result (``string``): rendered string
+
+    Raises:
+        ValueError: if neither ``path`` nor ``jinja_env`` is provided
     """
     jinja_filters = jinja_filters or {}
 
