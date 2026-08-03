@@ -4,7 +4,7 @@ from jinja2 import TemplateSyntaxError
 from nornir_jinja2.plugins.tasks import template_string
 
 
-data_dir = "{}/test_data".format(os.path.dirname(os.path.realpath(__file__)))
+data_dir = f"{os.path.dirname(os.path.realpath(__file__))}/test_data"
 
 simple_j2 = """
 
@@ -35,14 +35,14 @@ def jinja_filter_to_upper(value):
     return str(value).upper()
 
 
-class Test(object):
+class Test:
     def test_template_string(self, nr):
 
         result = nr.run(template_string, template=simple_j2, my_var="asd")
 
         assert result
         for h, r in result.items():
-            assert "host-name: {}".format(h) in r.result
+            assert f"host-name: {h}" in r.result
             if h == "host1.group_1":
                 assert "my_var: comes_from_host1.group_1" in r.result
             if h == "host2.group_1":
@@ -56,7 +56,7 @@ class Test(object):
 
         assert result
         for h, r in result.items():
-            assert "host-name: {}".format(h) in r.result
+            assert f"host-name: {h}" in r.result
             if h == "host1.group_1":
                 assert "my_var: COMES_FROM_HOST1.GROUP_1" in r.result
             if h == "host2.group_1":

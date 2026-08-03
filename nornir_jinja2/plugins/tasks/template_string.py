@@ -1,18 +1,19 @@
-from typing import Any, Optional, Dict, Callable
+from collections.abc import Callable
+from typing import Any
 
 from nornir.core.task import Result, Task
 
 from jinja2 import Environment, StrictUndefined
 
 
-FiltersDict = Optional[Dict[str, Callable[..., str]]]
+FiltersDict = dict[str, Callable[..., str]]
 
 
 def template_string(
     task: Task,
     template: str,
-    jinja_filters: Optional[FiltersDict] = None,
-    jinja_env: Optional[Environment] = None,
+    jinja_filters: FiltersDict | None = None,
+    jinja_env: Environment | None = None,
     **kwargs: Any,
 ) -> Result:
     """
