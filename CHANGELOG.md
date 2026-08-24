@@ -41,6 +41,7 @@ def env_for(path):
         trim_blocks=True,
     )
 
+
 task.run(template_file, template=tpl, jinja_env=env_for(f"templates/{platform}"))
 ```
 
