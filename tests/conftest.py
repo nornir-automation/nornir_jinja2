@@ -1,18 +1,17 @@
-import os
-
-from nornir import InitNornir
-from nornir.core.state import GlobalState
+from pathlib import Path
 
 import pytest
-
+from nornir import InitNornir
+from nornir.core import Nornir
+from nornir.core.state import GlobalState
 
 global_data = GlobalState(dry_run=True)
 
 
 @pytest.fixture(scope="session", autouse=True)
-def nr(request):
+def nr() -> Nornir:
     """Initializes nornir"""
-    dir_path = os.path.dirname(os.path.realpath(__file__))
+    dir_path = Path(__file__).resolve().parent
 
     nornir = InitNornir(
         inventory={
@@ -29,7 +28,7 @@ def nr(request):
     return nornir
 
 
-@pytest.fixture(scope="function", autouse=True)
-def reset_data():
+@pytest.fixture(autouse=True)
+def reset_data() -> None:
     global_data.dry_run = True
     global_data.reset_failed_hosts()

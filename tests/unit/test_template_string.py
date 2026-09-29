@@ -1,10 +1,11 @@
-import os
+from pathlib import Path
 
 from jinja2 import TemplateSyntaxError
+from nornir.core import Nornir
+
 from nornir_jinja2.plugins.tasks import template_string
 
-
-data_dir = f"{os.path.dirname(os.path.realpath(__file__))}/test_data"
+data_dir = f"{Path(__file__).resolve().parent}/test_data"
 
 simple_j2 = """
 
@@ -31,12 +32,12 @@ my_var: {{ my_var}}
 """
 
 
-def jinja_filter_to_upper(value):
+def jinja_filter_to_upper(value: object) -> str:
     return str(value).upper()
 
 
 class Test:
-    def test_template_string(self, nr):
+    def test_template_string(self, nr: Nornir) -> None:
 
         result = nr.run(template_string, template=simple_j2, my_var="asd")
 
@@ -48,7 +49,7 @@ class Test:
             if h == "host2.group_1":
                 assert "my_var: comes_from_group_1" in r.result
 
-    def test_jinja_filter(self, nr):
+    def test_jinja_filter(self, nr: Nornir) -> None:
         filters = {
             "to_upper": jinja_filter_to_upper,
         }
@@ -64,7 +65,7 @@ class Test:
             if h == "dev3.group_2":
                 assert "my_var: ASD" in r.result
 
-    def test_template_string_error_broken_string(self, nr):
+    def test_template_string_error_broken_string(self, nr: Nornir) -> None:
         results = nr.run(template_string, template=broken_j2)
         processed = False
         for result in results.values():

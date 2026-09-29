@@ -1,9 +1,8 @@
 from collections.abc import Callable
 from typing import Any
 
-from nornir.core.task import Result, Task
-
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
+from nornir.core.task import Result, Task
 
 FiltersDict = dict[str, Callable[..., str]]
 

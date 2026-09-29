@@ -85,6 +85,7 @@ line-ending = "auto"
 select = ["ALL"]
 
 ignore = [
+    "COM812", # Conflicts with the formatter, ruff warns unless it is disabled
     "CPY001", # Missing copyright notice at top of file
     "D203",   # Incompatible with D211, ruff warns unless one is disabled
     "D213",   # Incompatible with D212, ruff warns unless one is disabled
@@ -111,7 +112,6 @@ max-complexity = 10
     "D415",   # First line should end with a period, question mark, or exclamation point
     "D417",   # Missing argument description in the docstring
     "EM101",  # Exception must not use a string literal, assign to variable first
-    "I001",   # Import block is un-sorted or un-formatted
     "S701",   # By default, jinja2 sets `autoescape` to False
     "SIM108", # Use ternary operator instead of `if`-`else`-block
     "TRY003", # Avoid specifying long messages outside the exception class
@@ -123,9 +123,6 @@ max-complexity = 10
     ##################################################################################################
     # Review and change the below later                                                              #
     ##################################################################################################
-    "ANN001", # Missing type annotation for function argument
-    "ANN201", # Missing return type annotation for public function
-    "ARG001", # Unused function argument
     "D100",   # Missing docstring in public module
     "D101",   # Missing docstring in public class
     "D102",   # Missing docstring in public method
@@ -134,10 +131,6 @@ max-complexity = 10
     "D400",   # First line should end with a period
     "D401",   # First line of docstring should be in imperative mood
     "D415",   # First line should end with a period, question mark, or exclamation point
-    "I001",   # Import block is un-sorted or un-formatted
-    "INP001", # File is part of an implicit namespace package, add an `__init__.py`
-    "PT003",  # `scope='function'` is implied in `@pytest.fixture()`
-    "PTH120", # `os.path.dirname()` should be replaced by `Path.parent`
     "S701",   # By default, jinja2 sets `autoescape` to False
 ]
 
