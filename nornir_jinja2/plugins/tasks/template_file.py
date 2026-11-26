@@ -14,7 +14,7 @@ def template_file(
     jinja_filters: FiltersDict | None = None,
     jinja_env: Environment | None = None,
     **kwargs: Any,
-) -> Result:
+) -> Result[str]:
     """
     Renders contants of a file with jinja2. All the host data is available in the template
 

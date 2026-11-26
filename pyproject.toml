@@ -15,9 +15,10 @@ classifiers = [
     "Programming Language :: Python :: 3.14",
 ]
 dependencies = [
-    # allow-prereleases carried over from Poetry: the >=3.0.0a0 floor opts nornir
-    # (and only nornir) into prereleases, matching the old `allow-prereleases = true`.
-    "nornir>=3.0.0a0,<4",
+    # The pre-release floor opts nornir (and only nornir) into prereleases.
+    # 3.7.0b1 is the first version where `Result` is generic, which the tasks'
+    # `Result[str]` return annotations need at import time.
+    "nornir>=3.7.0b1,<4",
     "jinja2>=2.11.2,<4",
 ]
 
