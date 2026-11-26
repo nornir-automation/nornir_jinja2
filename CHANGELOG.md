@@ -1,5 +1,21 @@
 # Changelog
 
+## Unreleased
+
+### Breaking changes
+
+- The minimum nornir version is now 3.7.0b1. nornir 3.7 is still a pre-release, so
+  installers select it only when pre-releases are allowed for nornir.
+
+### Added
+
+- `template_file` and `template_string` are annotated `-> Result[str]`. With nornir 3.7,
+  a type checker reads the rendered text in `result[host].result` as `str` instead of
+  `Any`. mypy 2.4.1 and older still report `Any`, because the task signatures contain
+  `Any` (`**kwargs: Any` and the `jinja_filters` callables); Pyright reports `str`.
+- The package ships a `py.typed` marker, so type checkers read its annotations when it is
+  installed.
+
 ## 1.0.0
 
 First stable release. The major bump signals the breaking change below, and leaves the

@@ -1,5 +1,5 @@
 version = 1
-revision = 5
+revision = 3
 requires-python = ">=3.10"
 resolution-markers = [
     "python_full_version >= '3.15'",
@@ -1496,22 +1496,20 @@ wheels = [
 
 [[package]]
 name = "nornir"
-version = "3.5.0"
+version = "3.7.0b1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ruamel-yaml" },
-    { name = "setuptools" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/1a/e9/deda49010c698dc97f66fa93828686546c08127866b6c00a94078d4ef547/nornir-3.5.0.tar.gz", hash = "sha256:f0d212999a37bc5962534738c47099b3e11a45d8f7dc8bc855530f7fb73d2f64", size = 28730, upload-time = "2025-01-08T18:08:10.572Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/94/64/197a734acf9260ed8dfb21e2fd2ee68adda141883d920385b155dc528076/nornir-3.7.0b1.tar.gz", hash = "sha256:bdcafc59421413cee96a130edd06212847c978e379c42754122402760904e9ba", size = 75574, upload-time = "2026-11-26T07:15:52.805Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/5b/5b/2555603edbd02226c037822234830f6de837da53e1c0cd6018fc944c1d50/nornir-3.5.0-py3-none-any.whl", hash = "sha256:7e273d7b2aa519fa84b4fbbeb74ac5df3595d80105009049f0157c72a345b0b2", size = 30592, upload-time = "2025-01-08T18:08:04.668Z" },
+    { url = "https://files.pythonhosted.org/packages/6f/7c/6f8763d947c38c6d40d24c0774c07b95a560a1f504658f4dd794938b5552/nornir-3.7.0b1-py3-none-any.whl", hash = "sha256:c7d735d51ca297911e43b411e60de37867f18ec72bacbbf1585b0a9a4f2bfee1", size = 79807, upload-time = "2026-11-26T07:15:51.587Z" },
 ]
 
 [[package]]
 name = "nornir-jinja2"
 version = "1.0.0"
 source = { editable = "." }
-default-groups = ["dev", "docs"]
 dependencies = [
     { name = "jinja2" },
     { name = "nornir" },
@@ -1537,7 +1535,7 @@ docs = [
 [package.metadata]
 requires-dist = [
     { name = "jinja2", specifier = ">=2.11.2,<4" },
-    { name = "nornir", specifier = ">=3.0.0a0,<4" },
+    { name = "nornir", specifier = ">=3.7.0b1,<4" },
 ]
 
 [package.metadata.requires-dev]
